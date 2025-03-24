@@ -1,0 +1,36 @@
+version: 0.0.1
+type: plugin
+author: jewei
+name: jewei_sql_exec
+label:
+  en_US: jewei_sql_exec
+  ja_JP: jewei_sql_exec
+  zh_Hans: jewei_sql_exec
+  pt_BR: jewei_sql_exec
+description:
+  en_US: sql 执行者
+  ja_JP: sql 执行者
+  zh_Hans: sql 执行者
+  pt_BR: sql 执行者
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    storage:
+      enabled: true
+      size: 5242880
+plugins:
+  tools:
+    - provider/jewei_sql_exec.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-03-24T20:23:23.483325+08:00
+privacy: PRIVACY.md
+verified: false

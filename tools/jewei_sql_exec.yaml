@@ -1,0 +1,133 @@
+identity:
+  name: jewei_sql_exec
+  author: jewei
+  label:
+    en_US: jewei_sql_exec
+    zh_Hans: sql 执行者
+    pt_BR: jewei_sql_exec
+description:
+  human:
+    en_US: sql 执行者
+    zh_Hans: 执行 sql 语句，返回 json 字符串，如正常，将返回data节点，如出错，将返回error_msg节点
+    pt_BR: sql 执行者
+  llm: sql 执行者
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+      pt_BR: Query string
+    human_description:
+      en_US: Query string
+      zh_Hans: 查询语句
+      pt_BR: Query string
+    llm_description: sql查询语句
+    form: llm
+  - name: db_type
+    type: select
+    options:
+      - value: mysql
+        label:
+          en_US: MySQL
+          zh_Hans: MySQL
+          pt_BR: MySQL
+      - value: mssql
+        label:
+          en_US: Microsoft SQL Server
+          zh_Hans: Microsoft SQL Server
+          pt_BR: Microsoft SQL Server
+    required: true
+    label:
+      en_US: Database type
+      zh_Hans: 数据库类型
+      pt_BR: Database type
+    human_description:
+      en_US: Database type
+      zh_Hans: 支持的数据库类型：mysql, mssql，建议使用环境变量方式进行配置
+      pt_BR: Database type
+    llm_description: 数据库类型
+    form: llm
+  - name: host
+    type: secret-input
+    required: true
+    label:
+      en_US: Host
+      zh_Hans: 主机
+      pt_BR: Host
+    human_description:
+      en_US: Host
+      zh_Hans: 即Host，建议使用环境变量方式进行配置
+      pt_BR: Host
+    llm_description: 主机
+    form: llm
+  - name: port
+    type: number
+    required: true
+    label:
+      en_US: Port
+      zh_Hans: 端口
+      pt_BR: Port
+    human_description:
+      en_US: Port
+      zh_Hans: 数据库端口，建议使用环境变量方式进行配置
+      pt_BR: Port
+    llm_description: 数据库端口
+    form: llm
+  - name: database
+    type: string
+    required: true
+    label:
+      en_US: Database
+      zh_Hans: 数据库
+      pt_BR: Database
+    human_description:
+      en_US: Database
+      zh_Hans: 数据库名称，建议使用环境变量方式进行配置
+      pt_BR: Database
+    llm_description: 数据库名称
+    form: llm
+  - name: username
+    type: string
+    required: true
+    label:
+      en_US: Username
+      zh_Hans: 用户名
+      pt_BR: Username
+    human_description:
+      en_US: Username
+      zh_Hans: 数据库用户名，建议使用环境变量方式进行配置
+      pt_BR: Username
+    llm_description: 数据库用户名
+    form: llm
+  - name: password
+    type: secret-input
+    required: true
+    label:
+      en_US: Password
+      zh_Hans: 密码
+      pt_BR: Password
+    human_description:
+      en_US: Password
+      zh_Hans: 数据库密码，建议使用环境变量的Secret的方式进行配置
+      pt_BR: Password
+    llm_description: 数据库密码
+    form: llm
+  - name: timeout
+    type: number
+    required: false
+    default: 30
+    label:
+      en_US: Timeout
+      zh_Hans: 超时
+      pt_BR: Timeout
+    human_description:
+      en_US: Timeout
+      zh_Hans: 数据库连接超时时间（单位：秒），默认 30 秒，建议使用环境变量的方式进行配置
+      pt_BR: Timeout
+    llm_description: 数据库连接超时时间
+    form: llm
+extra:
+  python:
+    source: tools/jewei_sql_exec.py
