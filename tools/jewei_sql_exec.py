@@ -177,13 +177,22 @@ class JeweiSqlExecTool(Tool):
             # Extract parameters
             db_type = DatabaseType(tool_parameters.get("db_type", "mysql"))
             host = tool_parameters.get("host")
-            port = int(tool_parameters.get("port", 3306))
+            # 先判断port是否存在
+            if not tool_parameters.get("port"):
+                port = 3306
+            else:
+                port = int(tool_parameters.get("port"))
+            
             database = tool_parameters.get("database")
             username = tool_parameters.get("username")
             password = tool_parameters.get("password")
             query = tool_parameters.get("query")
             encrypt_key = None
-            timeout = int(tool_parameters.get("timeout", 30))
+            # 先判断timeout是否存在
+            if not tool_parameters.get("timeout"):
+                timeout = 30
+            else:
+                timeout = int(tool_parameters.get("timeout"))
             max_rows = 1000
 
             # Validate required parameters
