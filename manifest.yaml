@@ -1,6 +1,6 @@
 version: 0.0.1
 type: plugin
-author: jewei
+author: jeweis
 name: jewei_sql_exec
 label:
   en_US: jewei_sql_exec
